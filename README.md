@@ -1,0 +1,2 @@
+- Install node-fetch.
+- Run "node jokes.js"
