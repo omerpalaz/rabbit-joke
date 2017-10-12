@@ -23,8 +23,7 @@ class JokeService {
         })
         .then(res => {
             // Creates an instance of JokePrinter to print the Jokes.
-            const jokePrinter = new JokePrinter(this.loadJokeObjectsInSet(res));
-            jokePrinter.printJokes();
+            new JokePrinter(this.loadJokeObjectsInSet(res)).printJokes();
         })
         .catch(err => {
             console.log("Error in showJokes()");
@@ -75,20 +74,17 @@ class JokeService {
         .then(() => {
             var paramCategoryList = categoryList;
             var paramNumberOfJokes = numberOfJokes;
-
-            //paramCategoryList = undefined;
         
             if(paramCategoryList.length == 0) {
                 paramCategoryList = DEFAULT_CATEGORY_LIST;
             }
-        
             if(numberOfJokes < 0) {
                 paramNumberOfJokes = DEFAULT_NUMBER_OF_JOKES;
             }
-        
             else if(numberOfJokes > MAX_NUMBER_OF_JOKES) {
                 paramNumberOfJokes = 100;
             }
+
             return apiFactory.fetchJokes(paramNumberOfJokes, paramCategoryList);
         })
         .then(result => {
@@ -97,7 +93,6 @@ class JokeService {
             console.log("Error in getJokes()");
         });
     }
-
 }
 
 // Exports JokeService class.

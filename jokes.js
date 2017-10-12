@@ -9,11 +9,8 @@ const jokeCategories = ["nerdy", "explicit"]; // Category array for request
 
 console.log("Welcome to the Joke Service!\n");
 
-// Creates an instance of JokeService.
-var jokeService = new JokeService();
-
 // Calls JokeService.showJokes.
-jokeService.showJokes(numberOfJokes, jokeCategories).then(res => {
+new JokeService().showJokes(numberOfJokes, jokeCategories).then(res => {
     //console.log(res);
     console.log("\nSee you next time on the Joke Service!");
 })
