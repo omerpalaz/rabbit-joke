@@ -1,8 +1,6 @@
 /* Jokes
-Author: Omer Can Palaz <omer.palaz@gmail.com>
+   Author: Omer Can Palaz <omer.palaz@gmail.com>
 */
-
-"use strict";
 
 var JokeService = require('./JokeService');
 
@@ -14,11 +12,12 @@ console.log("Welcome to the Joke Service!\n");
 // Creates an instance of JokeService.
 var jokeService = new JokeService();
 
-// Promise for showJokes.
-var jokeServicePromise = jokeService.showJokes(numberOfJokes, jokeCategories);
-
-jokeServicePromise.then(function(res) {
+// Calls JokeService.showJokes.
+jokeService.showJokes(numberOfJokes, jokeCategories).then(res => {
+    //console.log(res);
     console.log("\nSee you next time on the Joke Service!");
-}).catch(function(err) {
+})
+.catch(function(err) {
+    console.log(err);
     console.log("\nSorry for not showing jokes on the Joke Service :(");
 });
